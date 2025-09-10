@@ -6,8 +6,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cayman/1.0.0/cayman.min.css">
   <style>
     main { max-width: 720px; margin: 0 auto; padding: 2em; }
-    #menu a { display: block; margin: 6px 0; }
-    #msg { color: #b22222; }
+    #menu a { display: block; margin: 8px 0; font-weight: 600; }
+    #msg { color: #b22222; margin-top: .5em; }
+    #intro { margin-top: 2em; padding: 1em; background: #f9f9f9; border-radius: 6px; }
+    #viewer { margin-top: 2em; padding: 1em; background: #fff; border-radius: 6px; border: 1px solid #ddd; }
   </style>
 </head>
 <body>
@@ -106,6 +108,14 @@ intro = "Accès complet : tous les fichiers sont disponibles ci-dessous. Pour si
       document.getElementById("menu").style.display = "block";
       document.getElementById("msg").textContent = "";
     }
+        // Cliquer sur valider
+    document.getElementById("btn").addEventListener("click", checkPwd);
+    // Touche Entrée
+    document.getElementById("pwd").addEventListener("keypress", function(e) {
+      if (e.key === "Enter") {
+        checkPwd();
+      }
+    });
   </script>
 </body>
 </html>
