@@ -69,7 +69,7 @@ L'équipe de recherche indépendante chargée de l'expérimentation vous répond
 
 if (norm === "si") {
         document.getElementById("viewer").style.display = "block";
-        loadMarkdown("kit_documentaire_1.md"); 
+        loadMarkdown("toolkits/kit_documentaire_1.md"); 
         return;
       }
 
@@ -77,16 +77,16 @@ if (norm === "si") {
       let intro = "";
       if (norm === "avant") {
         files = [
-{href = "kit_documentaire_2.md", label = "Découvrir le kit documentaire : Information partagée sur les risques de sanction"}, 
-{href = "script_kit_documentaire_2.md", label = "Découvrir directement le script dédié à l’information éclairée des demandeurs d’emploi sur les sanctions"}
+{href = "toolkits/kit_documentaire_2.md", label = "Découvrir le kit documentaire : Information partagée sur les risques de sanction"}, 
+{href = "toolkits/script_kit_documentaire_2.md", label = "Découvrir directement le script dédié à l’information éclairée des demandeurs d’emploi sur les sanctions"}
 ];
         intro = "Vous avez accédé au premier espace. Voici le document correspondant.";
       } else if (norm === "master") {
 files = [
-{href = "kit_documentaire_2.md", label = "Découvrir le kit documentaire : Précision de l’effort de recherche d’emploi"}, 
-{href = "kit_documentaire_2.md", label = "Découvrir le kit documentaire : Information partagée sur les risques de sanction"}, 
-{href = "script_kit_documentaire_2.md", label = "Découvrir directement le script dédié à l’information éclairée des demandeurs d’emploi sur les sanctions"},
-{href = "link_to_summary_vandbenberg2025_pdf.html", label = "En savoir plus sur le contexte de l’expérimentation"}
+{href = "toolkits/kit_documentaire_1.md", label = "Découvrir le kit documentaire : Précision de l’effort de recherche d’emploi"}, 
+{href = "toolkits/kit_documentaire_2.md", label = "Découvrir le kit documentaire : Information partagée sur les risques de sanction"}, 
+{href = "toolkits/script_kit_documentaire_2.md", label = "Découvrir directement le script dédié à l’information éclairée des demandeurs d’emploi sur les sanctions"},
+{href = "explanations/link_to_summary_vandbenberg2025_pdf.html", label = "En savoir plus sur le contexte de l’expérimentation"}
 ];
 intro = "Accès complet : tous les fichiers sont disponibles ci-dessous. Pour signaler un problème, envoyez un mail à <a href='mailto:enquete_ced@ipp.eu'>enquete_ced@ipp.eu</a>.";
       } else {
