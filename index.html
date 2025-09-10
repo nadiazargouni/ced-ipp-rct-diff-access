@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Portail d'accès</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cayman/1.0.0/cayman.min.css">
+  <style>
+    main { max-width: 720px; margin: 0 auto; padding: 2em; }
+    #menu a { display: block; margin: 6px 0; }
+    #msg { color: #b22222; }
+  </style>
+</head>
+<body>
+  <section class="page-header">
+    <h1 class="project-name">Portail d'accès : réservé exclusivement aux conseiller(ère)s France Travail</h1>
+    <h2 class="project-tagline">Accédez au kit documentaire</h2>
+  </section>
+
+  <main>
+    <h3>Code d'accès</h3>
+    <input id="pwd" type="password" placeholder="Entrez le premier mot du message de la bannière" style="width:70%">
+    <button onclick="checkPwd()">Valider</button>
+    <p id="msg"></p>
+
+
+<!-- Bloc accueil (menu) -->
+
+    <div id="content" style="display:none">
+      <div id="intro">
+        <h3>Votre agence est impliquée dans une expérimentation au coeur de la transformation de l’accompagnement des demandeurs d’emploi. 
+Ainsi, vous avez été informé(e) d’une nouvelle consigne à appliquer dans le cadre du contrat d’engagement des demandeurs d’emploi de votre portefeuille.
+Ce site rassemble toutes les informations nécessaires à l’implémentation de ces consignes lors de vos interactions avec les demandeurs d’emploi.
+
+L’équipe de recherche en charge de l’expérimentation vous remercie de votre collaboration et votre implication.</h3>
+        <p id="intro-text">Pour toute information complémentaire, vous pouvez écrire à <a href='mailto:enquete_ced@ipp.eu'>enquete_ced@ipp.eu</a>. 
+L'équipe de recherche indépendante chargée de l'expérimentation vous répondra.</p>
+      </div>
+
+    <div id="menu" style="display:none">
+      <h3>Menu</h3>
+      <div id="links"></div>
+    </div>
+  </main>
+
+    <!-- Bloc viewer direct -->
+    <div id="viewer" style="display:none">
+      <h3>Votre document</h3>
+      <div id="md-content"></div>
+    </div>
+  </main>
+
+  <!-- Charger un parseur Markdown -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+  <script>
+    function normalize(str) {
+      return str
+        .toLowerCase()
+        .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+        .replace(/[^a-z0-9 ]/g, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+    }
+
+    function checkPwd() {
+      const input = document.getElementById('pwd').value;
+      const norm = normalize(input);
+
+
+if (norm === "si") {
+        document.getElementById("viewer").style.display = "block";
+        loadMarkdown("kit_documentaire_1.md"); 
+        return;
+      }
+
+      let files = [];
+      let intro = "";
+      if (norm === "avant") {
+        files = [
+{href = "kit_documentaire_2.md", label = "Découvrir le kit documentaire : Information partagée sur les risques de sanction"}, 
+{href = "script_kit_documentaire_2.md", label = "Découvrir directement le script dédié à l’information éclairée des demandeurs d’emploi sur les sanctions"}
+];
+        intro = "Vous avez accédé au premier espace. Voici le document correspondant.";
+      } else if (norm === "master") {
+files = [
+{href = "kit_documentaire_2.md", label = "Découvrir le kit documentaire : Précision de l’effort de recherche d’emploi"}, 
+{href = "kit_documentaire_2.md", label = "Découvrir le kit documentaire : Information partagée sur les risques de sanction"}, 
+{href = "script_kit_documentaire_2.md", label = "Découvrir directement le script dédié à l’information éclairée des demandeurs d’emploi sur les sanctions"},
+{href = "link_to_summary_vandbenberg2025_pdf.html", label = "En savoir plus sur le contexte de l’expérimentation"}
+];
+intro = "Accès complet : tous les fichiers sont disponibles ci-dessous. Pour signaler un problème, envoyez un mail à <a href='mailto:enquete_ced@ipp.eu'>enquete_ced@ipp.eu</a>.";
+      } else {
+        document.getElementById("msg").textContent = "Le mot est incorrect. Veuillez relire la bannière.";
+        return;
+      }
+
+      const linksDiv = document.getElementById("links");
+      linksDiv.innerHTML = "";
+      files.forEach(f => {
+        const a = document.createElement("a");
+        a.href = f;
+        a.textContent = f;
+        linksDiv.appendChild(a);
+      });
+
+      document.getElementById("menu").style.display = "block";
+      document.getElementById("msg").textContent = "";
+    }
+  </script>
+</body>
+</html>
