@@ -1,0 +1,89 @@
+<!-- <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Un peu de contexte sur l'expérimentation en cours. </title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      text-align: center;
+    }
+    a.button {
+      display: inline-block;
+      padding: 12px 20px;
+      margin-top: 20px;
+      background-color: #007acc;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+    a.button:hover {
+      background-color: #005fa3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Une expérimentation similaire a eu lieu en Allemagne il y a quelques années. </h1>
+  <p>Elle est relatée dans Van den Berg et al. (2025). Un résumé en français de l'article est disponible. Vous pouvez télécharger le document en cliquant ci-dessous :</p>
+  <a href="docs/Résumé_expérience_aléatoire_allemagne.pdf" class="button" download>Télécharger le PDF</a>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Prévisualisation du PDF</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    header {
+      background: #007acc;
+      color: white;
+      padding: 15px;
+    }
+    .pdf-container {
+      width: 100%;
+      height: 90vh; /* prend presque tout l’écran */
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    a.download {
+      display: inline-block;
+      margin: 15px;
+      padding: 10px 18px;
+      background: #007acc;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+    a.download:hover {
+      background: #005fa3;
+    }
+  </style>
+  </head>
+<body>
+  <h1>Une expérimentation similaire a eu lieu en Allemagne il y a quelques années. </h1>
+  <p>Elle est relatée dans Van den Berg et al. (2025). Un résumé en français de l'article est disponible. Vous pouvez télécharger le document en cliquant ci-dessous :</p>
+
+  <!-- Bouton de téléchargement -->
+  <p>
+    <a href="docs/Résumé_expérience_aléatoire_allemagne.pdf" class="download" download>Télécharger le résumé en PDF</a>
+  </p>
+
+  <!-- Prévisualisation -->
+  <div class="pdf-container">
+    <iframe src="docs/Résumé_expérience_aléatoire_allemagne.pdf"></iframe>
+  </div>
+</body>
+</html>
+
